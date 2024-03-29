@@ -3,9 +3,10 @@ import {
     Text,
     FlatList,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    Image
 } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 //https://youtu.be/kQZ6W5ZX6H0?si=kp7XlW4RMP_ZsDOW
 const CustomBottomNav = ({
     tabs,
@@ -13,6 +14,7 @@ const CustomBottomNav = ({
     height,
     backgroundColor
 }) => {
+    const [selectedTab, SetSelectedTab] = useState(0);
     return (
         <View
             style={{
@@ -33,15 +35,16 @@ const CustomBottomNav = ({
                                 width: Dimensions.get('window').width / tabs.length,
                                 height: '100%',
                                 justifyContent: 'center',
-                                alignItems: 'center', 
+                                alignItems: 'center',
                             }}
+                            onPress={()=>SetSelectedTab(index)}
                         >
                             {
-                                item.icone != null && <Image
-                                    source={item.icon}
+                                item.icon != null && <Image
+                                    source={selectedTab===index?item.activeTab:item.icon}
                                     style={{
-                                        width:item.size,
-                                        height:item.size
+                                        width: item.size,
+                                        height: item.size
                                     }}
                                 />
                             }
