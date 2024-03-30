@@ -86,8 +86,8 @@ const App = () => {
             size:450
           }
         ]}
-        titleStyle={{ fontSize:23, color:'red', marginTop:20}}
-        descStyle={{ fontSize:16, color:'#000', marginTop:20}}
+        titleStyle={{ fontSize:23, color:'red', marginTop:20, paddingHorizontal:10}}
+        descStyle={{ fontSize:16, color:'#000', marginTop:20,paddingHorizontal:10}}
         activeDotColor={'red'}
         nonActiveDotColor={'purple'}
         onContinue={()=>{
